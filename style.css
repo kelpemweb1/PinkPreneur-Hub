@@ -1,0 +1,708 @@
+/* ==========================================================================
+   1. IMPORT FONT & RESET GLOBAL
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&display=swap');
+
+:root {
+    --pink-primary: #ff66a0;
+    --pink-dark: #d44b7d;
+    --pink-pastel: #fff0f5;
+    --bg-white: #ffffff;
+    --bg-dark: #121212;
+    --card-dark: #1e1e1e;
+    --text-main: #2d2d2d;
+    --text-muted: #666666;
+    --text-light: #f5f5f5;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: var(--pink-pastel);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: var(--transition);
+}
+
+/* Dark Mode States */
+body.dark-theme {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+body.dark-theme :not(.hero-content) > p,
+body.dark-theme .section-subtitle,
+body.dark-theme .flow-card p,
+body.dark-theme .faq-answer p {
+    color: #b3b3b3;
+}
+body.dark-theme header,
+body.dark-theme .flow-card,
+body.dark-theme .about-container,
+body.dark-theme .faq-item,
+body.dark-theme .service-card-premium,
+body.dark-theme .team-card,
+body.dark-theme .contact-form-container,
+body.dark-theme .info-box {
+    background-color: var(--card-dark) !important;
+    color: var(--text-light);
+    border-color: #2a2a2a;
+}
+body.dark-theme h2, 
+body.dark-theme h3, 
+body.dark-theme h4, 
+body.dark-theme .faq-question {
+    color: var(--text-light) !important;
+}
+
+/* ==========================================================================
+   2. LAYOUT UTAMA & HEADER (NAVIGASI)
+   ========================================================================== */
+section {
+    padding: 80px 8% !important; /* Mencegah konten mentok ke ujung layar */
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: var(--bg-white);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.logo span {
+    color: var(--pink-primary);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+nav a:hover, nav a.active {
+    color: var(--pink-primary);
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-main);
+    padding: 5px;
+}
+
+/* ==========================================================================
+   3. HERO SECTION & TYPOGRAPHY GRADIENT (REVISI WARNING FIX)
+   ========================================================================== */
+.hero {
+    text-align: center;
+    padding: 100px 8% 60px 8% !important;
+}
+
+.badge {
+    background: rgba(255, 102, 160, 0.1);
+    color: var(--pink-primary);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.gradient-text {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #2d2d2d 30%, var(--pink-primary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text; /* Menghilangkan warning garis kuning di VS Code */
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+body.dark-theme .gradient-text {
+    background: linear-gradient(135deg, #ffffff 30%, var(--pink-primary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text; /* Menghilangkan warning garis kuning di VS Code */
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 35px auto;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--pink-primary);
+    color: var(--bg-white);
+    box-shadow: 0 5px 15px rgba(255, 102, 160, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--pink-dark);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--pink-primary);
+    border: 2px solid var(--pink-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--pink-primary);
+    color: var(--bg-white);
+}
+
+/* ==========================================================================
+   4. STATS & WORKFLOW GRID (LAYOUT FIX)
+   ========================================================================== */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    background: var(--bg-white);
+    border-radius: 24px;
+    padding: 40px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.stat-card {
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--pink-primary);
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 50px;
+    font-size: 1.05rem;
+}
+
+.workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Mengatur kolom ke samping */
+    gap: 30px;
+}
+
+.flow-card {
+    background: var(--bg-white);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 102, 160, 0.04);
+    position: relative;
+    border: 1px solid rgba(255, 102, 160, 0.08);
+    transition: var(--transition);
+}
+
+.flow-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(255, 102, 160, 0.1);
+}
+
+.flow-num {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: rgba(255, 102, 160, 0.12);
+    line-height: 1;
+}
+
+.flow-icon {
+    font-size: 2.2rem;
+    color: var(--pink-primary);
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.flow-card h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.flow-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   5. TENTANG (ABOUT) & FAQ SECTION
+   ========================================================================== */
+.about-container {
+    background: var(--bg-white);
+    padding: 60px 45px;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(255, 102, 160, 0.05);
+    text-align: center;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.about-container h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.about-container p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+.faq-container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--bg-white);
+    margin-bottom: 15px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+}
+
+.faq-question {
+    width: 100%;
+    padding: 22px;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-main);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-answer {
+    padding: 0 22px 22px 22px;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   6. HALAMAN LAYANAN (SERVICES)
+   ========================================================================== */
+.page-header {
+    text-align: center;
+    padding: 60px 8% 20px 8% !important;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card-premium {
+    background: var(--bg-white);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.03);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    transition: var(--transition);
+}
+
+.service-card-premium.featured {
+    border: 2px solid var(--pink-primary);
+    transform: scale(1.03);
+}
+
+.badge-featured {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--pink-primary);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.icon-box {
+    width: 65px;
+    height: 65px;
+    background: rgba(255, 102, 160, 0.1);
+    color: var(--pink-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 25px auto;
+}
+
+.service-card-premium h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.service-card-premium p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    height: 50px;
+}
+
+.price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--pink-primary);
+    margin-bottom: 25px;
+}
+
+.btn-card {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 102, 160, 0.08);
+    color: var(--pink-primary);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: var(--transition);
+}
+
+.service-card-premium.featured .btn-card {
+    background: var(--pink-primary);
+    color: #fff;
+}
+
+.btn-card:hover {
+    background: var(--pink-primary);
+    color: #fff;
+}
+
+/* ==========================================================================
+   7. PORTOFOLIO GRID
+   ========================================================================== */
+.portfolio-filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    padding: 10px 22px;
+    border: none;
+    background: var(--bg-white);
+    color: var(--text-muted);
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--pink-primary);
+    color: #fff;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.portfolio-item {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    height: 250px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.2));
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.portfolio-item:hover .overlay {
+    opacity: 1;
+}
+
+.proj-badge {
+    color: var(--pink-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.overlay h4 {
+    color: #fff !important;
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+}
+
+.overlay p {
+    color: #ccc !important;
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   8. HALAMAN TIM (TEAM CARDS)
+   ========================================================================== */
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.team-card {
+    background: var(--bg-white);
+    border-radius: 24px;
+    padding: 40px 30px;
+    text-align: center;
+    width: 320px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.member-img-box {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px auto;
+    border: 4px solid var(--pink-pastel);
+}
+
+.member-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.role {
+    display: inline-block;
+    color: var(--pink-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.team-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   9. KONTAK & FORMULIR
+   ========================================================================== */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .contact-wrapper { grid-template-columns: 1fr; }
+}
+
+.contact-form-container {
+    background: var(--bg-white);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.contact-form-container h3 {
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: rgba(0,0,0,0.01);
+    border-radius: 12px;
+    font-size: 0.95rem;
+    outline: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    border-color: var(--pink-primary);
+    background: #fff;
+}
+
+.input-group textarea {
+    height: 140px;
+    resize: none;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background: var(--pink-primary);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 5px 15px rgba(255, 102, 160, 0.2);
+}
+
+.info-box {
+    background: var(--bg-white);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+}
+
+.info-box p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.info-box p i {
+    color: var(--pink-primary);
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   10. FOOTER & UTILITIES (FLOATING WA)
+   ========================================================================== */
+.floating-wa {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25d366;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    z-index: 999;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.floating-wa:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    text-align: center;
+    padding: 30px 8%;
+    background: transparent;
+    border-top: 1px solid rgba(255, 102, 160, 0.15);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}

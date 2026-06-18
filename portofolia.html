@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - PinkPreneur Hub</title>
+    <link rel="shortcut icon" href="gmb/favicon.ico.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="gmb/logo.png.png" alt="Logo" class="nav-logo">
+            <h2>PinkPreneur <span>Hub</span></h2>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="layanan.html">Layanan</a>
+            <a href="portofolia.html" class="active">Portofolio</a>
+            <a href="tim.html">Tim Kami</a>
+            <a href="kontak.html">Kontak</a>
+            <button id="dark-mode-toggle" class="toggle-btn"><i class="fa-solid fa-moon"></i></button>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1 class="gradient-text">Karya Terbaik Kami</h1>
+        <p>Projek digital nyata yang telah kami selesaikan dengan standarisasi industri kreatif.</p>
+    </section>
+
+    <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="web">Website</button>
+        <button class="filter-btn" data-filter="logo">Branding/Logo</button>
+        <button class="filter-btn" data-filter="sosmed">Media Sosial</button>
+    </div>
+
+    <section class="portfolio-grid">
+        <div class="portfolio-item" data-category="web">
+            <img src="gmb/portfo-web.jpg.jpg" alt="Web UMKM">
+            <div class="overlay">
+                <span class="proj-badge">Web Development</span>
+                <h4>Website Kue Tradisional Jambi</h4>
+                <p>Sistem katalog online responsif untuk memperluas cakupan distribusi pasar produk lokal.</p>
+            </div>
+        </div>
+        <div class="portfolio-item" data-category="logo">
+            <img src="gmb/portfo-logo.jpg.jpg" alt="Logo">
+            <div class="overlay">
+                <span class="proj-badge">Branding Design</span>
+                <h4>Logo Coffee Shop Angkringan</h4>
+                <p>Desain identitas visual bernuansa modern minimalis dengan tetap mempertahankan kearifan lokal.</p>
+            </div>
+        </div>
+        <div class="portfolio-item" data-category="sosmed">
+            <img src="gmb/portfo-sosmed.jpg.jpg" alt="Feed">
+            <div class="overlay">
+                <span class="proj-badge">Social Media</span>
+                <h4>Feed Instagram Hijab Syari</h4>
+                <p>Optimasi visual tata letak feed estetis untuk mendongkrak konversi interaksi calon pembeli.</p>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/6289672243234" class="floating-wa" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    <footer>
+        <p>© 2026 PinkPreneur Hub | Muhammad Daffa Lailqodri & Fajar Fadilah Akbar. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
